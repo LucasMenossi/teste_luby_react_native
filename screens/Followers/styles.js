@@ -10,13 +10,21 @@ const Style = StyleSheet.create ({
     pageTop: {
         flexDirection: "row",
         paddingTop: 23,
-        marginTop: 20,
         width: "100%",
         backgroundColor: "#1F1F1F",
         height: 68,
     },
-    texto: {
+    textoFollowers: {
         color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontSize: 17,
+        fontWeight: "bold"
+    },
+    textoNome: {
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontSize: 17,
+        fontWeight: "bold"
     },
     seta: {
         height: 18,
@@ -34,6 +42,9 @@ const Style = StyleSheet.create ({
         flexDirection: "row",
         width: "100%",
         paddingTop: 30,
+        borderBottomWidth: 1,
+        borderColor: "#52525D",
+        paddingBottom: 30,
     },
     foto: {
         width: 64,

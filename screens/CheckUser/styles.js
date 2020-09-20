@@ -5,13 +5,17 @@ const Style = StyleSheet.create ({
         height: 19,
         width: 19,
     },
+    sair: {
+        height: 19,
+        width: 19,
+    },
     foto: {
         width: 115,
         height: 115,
         borderRadius: 100,
         borderWidth: 3,
         borderColor: "white",
-        marginTop: "-25%",
+        marginTop: "-15%",
         marginBottom: 39,
     },
     backGround: {
@@ -24,16 +28,43 @@ const Style = StyleSheet.create ({
     pageTop: {
         flexDirection: "row",
         paddingTop: 23,
-        paddingLeft: 11,
-        margin: 20,
         width: "100%",
-        justifyContent: "space-between",
-        paddingRight: 29,
+        justifyContent: "space-around",
         backgroundColor: "#1F1F1F",
-        height: 126,
+        height: 142,
     },
     texto: {
         color: "white",
+        fontFamily: "Helvetica-Neue",
+    },
+    textoNome: {
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontWeight: "bold",
+        fontSize: 26,
+    },
+    textoInfo: {
+        fontSize: 18,
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+    },
+    textoNumero: {
+        fontSize: 32,
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontWeight: "bold",
+    },
+    textoInfo2: {
+        fontSize: 17,
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+    },
+    textoLogin: {
+        fontSize: 17,
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontWeight: "bold",
+        marginLeft: 50
     },
     viewAmarela: {
         backgroundColor: "#FFCE00",
@@ -56,13 +87,14 @@ const Style = StyleSheet.create ({
         paddingBottom: 16,
     },
     bottomView: {
-        width:"100%",
+        width: "100%",
         flexDirection: "row",
-        marginTop: 4,
+        marginTop: 40,
+        marginBottom: 40,
     },
     infoGitText: {
         textAlign: "center",
-    },    
+    },  
 })
 
 export default Style;

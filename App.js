@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TabBarIOS, Text, TextBase, View } from 'react-native';
 import Login from './screens/Login';
 import User from './screens/User';
@@ -11,12 +11,18 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
 
 const Tabs = createBottomTabNavigator();
 
 function BottomBar() {
   return (
-    <Tabs.Navigator initialRouteName="Login">
+    <Tabs.Navigator initialRouteName="Login" tabBarOptions={{
+      style: {
+        borderTopRightRadius: 15,
+      }
+    }}>
       <Tabs.Screen name="Login" component={Login} options={() => {
         return {
           tabBarVisible: false,
@@ -52,8 +58,25 @@ function BottomBar() {
   )
 }
 
+const fetchFont = () => {
+  return Font.loadAsync({
+    'Helvetica-Neue': require('./assets/fonts/helvetica-neue.ttf')
+  })
+}
 
 export default function App() {
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if(!fontLoaded) {
+    return <AppLoading 
+      startAsync={fetchFont}
+      onError={() => console.log("ERR0R")}
+      onFinish={() => {
+        setFontLoaded(true)
+      }}
+    />;
+  }
+
   return (
     <Provider store={store}>
       <NavigationContainer>
@@ -62,12 +85,3 @@ export default function App() {
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -10,10 +10,8 @@ const Style = StyleSheet.create ({
         backgroundColor: "#292929",
         width: "100%",
         height: "100%",
-        display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        paddingHorizontal: 20
     },
     input: {
         backgroundColor: "#FFFFFF",
@@ -24,15 +22,17 @@ const Style = StyleSheet.create ({
         paddingLeft: 20,
         width: "100%",
         fontSize: 20,
+        flexDirection: "row",
+        fontFamily: "Helvetica-Neue",
     },
     button: {
         backgroundColor: "#FFCE00",
         width: "100%",
         height: 56,
         borderRadius: 12,
+        alignItems: "center",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center",
     },
     seta: {
         width: 18,
@@ -41,7 +41,18 @@ const Style = StyleSheet.create ({
     },
     texto: {
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontFamily: "Helvetica-Neue",
+    },
+    textoInput: {
+        fontSize: 20,
+        fontFamily: "Helvetica-Neue",
+    },
+    textoError: {
+        fontSize: 14,
+        fontFamily: "Helvetica-Neue",
+        color: "red", 
+        marginRight: 19,
     }
 })
 

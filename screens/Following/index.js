@@ -15,8 +15,8 @@ export default function Following({ navigation }) {
     const gitData = useSelector(state => state.git);
 
     useEffect(() => {
-        dispatch(GitActions.getFollowingRequest(gitData.userData.login))
-    }, [])
+        dispatch(GitActions.getFollowingRequest(gitData?.userData?.login))
+    }, [gitData.userData])
 
     return (
         <ScrollView style={styles.backGround}>
@@ -24,17 +24,17 @@ export default function Following({ navigation }) {
                 <TouchableOpacity onPress={() => navigation.navigate("User")}>
                     <Image source={setaEsquerda} style={styles.seta} />
                 </TouchableOpacity>
-                <Text style={[{ marginLeft: 80 }, styles.texto]}>Seguindo {gitData?.userData?.following}</Text>
+                <Text style={[{ marginLeft: 80 }, styles.textoFollowing]}>Seguindo {gitData?.userData?.following}</Text>
             </View>
             { gitData?.followingLoading ?
                 <ActivityIndicator />
                 :
                 gitData.followingData && gitData.followingData?.map((item) => (
-                    <TouchableOpacity style={styles.midView} onPress={() => {dispatch(GitActions.getCheckUserRequest(item.login)); navigation.navigate("CheckUser");}}>
+                    <TouchableOpacity style={styles.midView} onPress={() => { dispatch(GitActions.getCheckUserRequest(item.login)); navigation.navigate("CheckUser"); }}>
                         <View style={styles.viewAmarela}>
                         </View>
                         <Image source={{ uri: item.avatar_url }} style={styles.foto} />
-                        <Text style={[styles.texto, styles.nome, { marginRight: 90 }]}>{item.login}</Text>
+                        <Text style={[styles.textoNome, styles.nome, { marginRight: 90 }]}>#{item.login}</Text>
                         <View style={styles.arrumar}>
                             <Image source={setaDireita} style={[styles.seta, styles.nome]} />
                         </View>

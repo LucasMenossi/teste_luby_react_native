@@ -10,13 +10,26 @@ const Style = StyleSheet.create ({
     pageTop: {
         flexDirection: "row",
         paddingTop: 23,
-        marginTop: 20,
         width: "100%",
         backgroundColor: "#1F1F1F",
         height: 68,
     },
-    texto: {
+    textoRepos: {
         color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontSize: 17,
+        fontWeight: "bold"
+    },
+    textoRepoName: {
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    textoDesc: {
+        color: "white",
+        fontFamily: "Helvetica-Neue",
+        fontSize: 15,
     },
     seta: {
         height: 18,
@@ -39,6 +52,8 @@ const Style = StyleSheet.create ({
         width: "100%",
         flexDirection: "row",
         paddingVertical: 20,
+        borderBottomWidth: 1,
+        borderColor: "#52525D",
     },
     reposInfo: {
         flexDirection: "row",

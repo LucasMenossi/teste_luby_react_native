@@ -10,6 +10,7 @@ import { Creators as GitActions } from '../../store/ducks/git';
 export default function Login({ navigation }) {
 
     const [input, setInput] = useState("");
+    const [error, setError] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -19,17 +20,30 @@ export default function Login({ navigation }) {
         if (gitData?.userData) {
             navigation.navigate("User");
         }
+        return () => {
+            setInput("")
+        }
     }, [gitData?.userData])
 
     return (
         <View style={styles.backGround}>
             <Image source={logo} style={styles.image} />
-            <TextInput style={styles.input} placeholder="Usuário" placeholderTextColor="#535353" value={input} onChangeText={text => setInput(text)} />
-            <TouchableOpacity style={styles.button} onPress={() => dispatch(GitActions.getUserRequest(input))}>
+            <View style={styles.input}>
+                <TextInput placeholder="Usuário" placeholderTextColor="#535353" value={input} onChangeText={text => setInput(text)} style={[{ flex: 1 }, styles.textoInput]} />
+                {error && <Text style={ styles.textoError }>Campo obrigatório</Text>}
+            </View>
+            <TouchableOpacity style={styles.button} onPress={() => {
+                if (input !== "") {
+                    dispatch(GitActions.getUserRequest(input))
+                    setError(false)
+                } else {
+                    setError(true)
+                }
+            }}>
                 {gitData?.userLoading ?
                     <ActivityIndicator />
                     :
-                    <View>
+                    <View style={styles.button}>
                         <Text style={styles.texto}>ENTRAR</Text>
                         <Image source={seta} style={styles.seta} />
                     </View>
