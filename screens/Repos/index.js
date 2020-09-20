@@ -22,39 +22,41 @@ export default function Repos({ navigation }) {
     }, [gitData.userData])
 
     return (
-        <ScrollView style={styles.backGround}>
+        <View>
             <View style={styles.pageTop}>
                 <TouchableOpacity onPress={() => navigation.navigate("User")}>
                     <Image source={setaEsquerda} style={styles.seta} />
                 </TouchableOpacity>
                 <Text style={[{ marginLeft: 80 }, styles.textoRepos]}>{gitData?.userData?.public_repos} repositórios</Text>
             </View>
-            { gitData?.reposLoading ?
-                <ActivityIndicator />
-                :
-                gitData.reposData && gitData.reposData?.map((item) => (
-                    <View style={styles.repos}>
-                        <View style={styles.viewAmarela}>
-                        </View>
-                        <View style={{ marginLeft: 18 }}>
-                            <Text style={[{ marginBottom: 9 }, styles.textoRepoName]}>{item.name}</Text>
-                            <Text style={[{ paddingRight: 18, paddingBottom: 14 }, styles.textoDesc]}>{item.description}</Text>
-                            <View style={styles.reposInfo}>
-                                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between" }}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <Image source={estrela} style={styles.icons} />
-                                        <Text style={styles.textoDesc}>{item.stargazers_count}</Text>
-                                    </View>
-                                    <View style={{ flexDirection: "row", marginRight: 23 }}>
-                                        <Image source={cadeado} style={styles.icons} />
-                                        <Image source={cadeadoAberto} style={styles.icons} />
+            <ScrollView style={styles.backGround}>
+                {gitData?.reposLoading ?
+                    <ActivityIndicator />
+                    :
+                    gitData.reposData && gitData.reposData?.map((item) => (
+                        <View style={styles.repos}>
+                            <View style={styles.viewAmarela}>
+                            </View>
+                            <View style={{ marginLeft: 18 }}>
+                                <Text style={[{ marginBottom: 9 }, styles.textoRepoName]}>{item.name}</Text>
+                                <Text style={[{ paddingRight: 18, paddingBottom: 14 }, styles.textoDesc]}>{item.description}</Text>
+                                <View style={styles.reposInfo}>
+                                    <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between" }}>
+                                        <View style={{ flexDirection: "row" }}>
+                                            <Image source={estrela} style={styles.icons} />
+                                            <Text style={styles.textoDesc}>{item.stargazers_count}</Text>
+                                        </View>
+                                        <View style={{ flexDirection: "row", marginRight: 23 }}>
+                                            <Image source={cadeado} style={styles.icons} />
+                                            <Image source={cadeadoAberto} style={styles.icons} />
+                                        </View>
                                     </View>
                                 </View>
                             </View>
                         </View>
-                    </View>
-                ))
-            }
-        </ScrollView>
+                    ))
+                }
+            </ScrollView>
+        </View>
     )
 }

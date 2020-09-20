@@ -19,28 +19,30 @@ export default function Followers({ navigation }) {
     }, [gitData.userData])
 
     return (
-        <ScrollView style={styles.backGround}>
+        <View>
             <View style={styles.pageTop}>
                 <TouchableOpacity onPress={() => navigation.navigate("User")}>
                     <Image source={setaEsquerda} style={styles.seta} />
                 </TouchableOpacity>
                 <Text style={[{ marginLeft: 80 }, styles.textoFollowers]}>{gitData?.userData?.followers} seguidores</Text>
             </View>
-            { gitData?.followersLoading ?
-                <ActivityIndicator />
-                :
-                gitData.followersData && gitData.followersData?.map((item) => (
-                    <TouchableOpacity style={styles.midView} onPress={() => { dispatch(GitActions.getCheckUserRequest(item.login)); navigation.navigate("CheckUser"); }}>
-                        <View style={styles.viewAmarela}>
-                        </View>
-                        <Image source={{ uri: item.avatar_url }} style={styles.foto} />
-                        <Text style={[styles.textoNome, styles.nome, { marginRight: 90 }]}>#{item.login}</Text>
-                        <View style={styles.arrumar}>
-                            <Image source={setaDireita} style={[styles.seta, styles.nome]} />
-                        </View>
-                    </TouchableOpacity>
-                ))
-            }
-        </ScrollView>
+            <ScrollView style={styles.backGround}>
+                {gitData?.followersLoading ?
+                    <ActivityIndicator />
+                    :
+                    gitData.followersData && gitData.followersData?.map((item) => (
+                        <TouchableOpacity style={styles.midView} onPress={() => { dispatch(GitActions.getCheckUserRequest(item.login)); navigation.navigate("CheckUser"); }}>
+                            <View style={styles.viewAmarela}>
+                            </View>
+                            <Image source={{ uri: item.avatar_url }} style={styles.foto} />
+                            <Text style={[styles.textoNome, styles.nome, { marginRight: 90 }]}>#{item.login}</Text>
+                            <View style={styles.arrumar}>
+                                <Image source={setaDireita} style={[styles.seta, styles.nome]} />
+                            </View>
+                        </TouchableOpacity>
+                    ))
+                }
+            </ScrollView>
+        </View>
     )
 }

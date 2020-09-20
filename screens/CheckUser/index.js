@@ -23,7 +23,7 @@ export default function CheckUser({ navigation }) {
                             <Image source={seta} style={styles.enter} />
                         </TouchableOpacity>
                         <Text style={styles.textoLogin}>#{gitData?.checkUserData?.login}</Text>
-                        <TouchableOpacity style={{ flexDirection: "row" }} onPress={() => dispatch(GitActions.getUserRequest(gitData?.checkUserData.login))}>
+                        <TouchableOpacity style={{ flexDirection: "row" }} onPress={() => {dispatch(GitActions.getUserRequest(gitData?.checkUserData.login)); navigation.navigate("User")}}>
                             <Text style={[{ marginRight: 8 }, styles.textoInfo]}>Salvar</Text>
                             <Image source={enter} style={styles.enter} />
                         </TouchableOpacity>

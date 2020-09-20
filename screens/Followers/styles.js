@@ -4,7 +4,8 @@ const Style = StyleSheet.create ({
     backGround: {
         backgroundColor: "#292929",
         width: "100%",
-        height: "100%",
+        height: "110%",
+        marginBottom: "-10%",
         display: "flex",
     },
     pageTop: {
