@@ -19,7 +19,7 @@ export default function Followers({ navigation }) {
     }, [gitData.userData])
 
     return (
-        <View>
+        <View style={{paddingBottom: 160}} >
             <View style={styles.pageTop}>
                 <TouchableOpacity onPress={() => navigation.navigate("User")}>
                     <Image source={setaEsquerda} style={styles.seta} />

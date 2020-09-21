@@ -19,7 +19,7 @@ export default function Following({ navigation }) {
     }, [gitData.userData])
 
     return (
-        <View>
+        <View style={{paddingBottom: 130}}>
             <View style={styles.pageTop}>
                 <TouchableOpacity onPress={() => navigation.navigate("User")}>
                     <Image source={setaEsquerda} style={styles.seta} />
@@ -32,8 +32,7 @@ export default function Following({ navigation }) {
                     :
                     gitData.followingData && gitData.followingData?.map((item) => (
                         <TouchableOpacity style={styles.midView} onPress={() => { dispatch(GitActions.getCheckUserRequest(item.login)); navigation.navigate("CheckUser"); }}>
-                            <View style={styles.viewAmarela}>
-                            </View>
+                            <View style={styles.viewAmarela} />
                             <Image source={{ uri: item.avatar_url }} style={styles.foto} />
                             <Text style={[styles.textoNome, styles.nome, { marginRight: 90 }]}>#{item.login}</Text>
                             <View style={styles.arrumar}>

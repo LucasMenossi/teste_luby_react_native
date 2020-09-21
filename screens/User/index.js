@@ -12,7 +12,7 @@ export default function User({ navigation }) {
     const dispatch = useDispatch();
 
     return (
-        <ScrollView>
+        <ScrollView style={{marginBottom: 60}}>
             { gitData.userLoading ?
                 <ActivityIndicator size="large"/>
                 :
